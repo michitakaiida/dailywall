@@ -14,40 +14,19 @@
 </head><body><a id="top-of-page"></a><div id="wrap" class="clearfix">
 <!-- ===================================== END HEADER ===================================== -->
 
-    <p id="a">iida</p>
-    <p id="b">azuma</p>
-    <div id="wall">His daily report is...</div> 
-
-<script type="text/javascript">
-$(function(){
-    $("#a").click(function(){
-	  $("#wall").load("2012iida.txt");
-	  val = $(this).attr("id");
-      	  $("#wall").load(val+".txt");
-    });
-
-    $("#b").click(function(){
-	  $("#wall").load("2012azuma.txt");
-	  val = $(this).attr("id");
-      	  $("#wall").load(val+".txt");
-    });
-});
-</script>
-
 
  <div align="center">
- <h1>システムと仲良く慣れそうですか？<h1>
+ <h1>結果<h1>
  <h3>システムとあなたの距離感をおしえてください</h3>
-  あなた<input type="range" max="1000" value="500"/><p>val</p>
+  <p class = "1"></p>
  </div>
 
 <script type="text/javascript">
 $(function() {
-  $("input").change(function() {
-    $(this).next('p').text($(this).val());
-  });
+  var friendship = window.localStorage.getItem("friendship");
+  var like =  window.localStorage.getItem("like");
+  $('.1').text("あなたとシステムの距離感のスコアは"+ friendship +"/1000で、システムが"+like+"です");
 });
-  
 </script>
 
 

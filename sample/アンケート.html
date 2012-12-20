@@ -14,41 +14,53 @@
 </head><body><a id="top-of-page"></a><div id="wrap" class="clearfix">
 <!-- ===================================== END HEADER ===================================== -->
 
-    <p id="a">iida</p>
-    <p id="b">azuma</p>
-    <div id="wall">His daily report is...</div> 
-
-<script type="text/javascript">
-$(function(){
-    $("#a").click(function(){
-	  $("#wall").load("2012iida.txt");
-	  val = $(this).attr("id");
-      	  $("#wall").load(val+".txt");
-    });
-
-    $("#b").click(function(){
-	  $("#wall").load("2012azuma.txt");
-	  val = $(this).attr("id");
-      	  $("#wall").load(val+".txt");
-    });
-});
-</script>
-
 
  <div align="center">
  <h1>システムと仲良く慣れそうですか？<h1>
  <h3>システムとあなたの距離感をおしえてください</h3>
-  あなた<input type="range" max="1000" value="500"/><p>val</p>
+  あなた<input type="range" max="1000" value="500"/><!--<p>val</p>-->
+　</br>
+</br>
+
+<div align="center">
+<h2>質問<h2>
+
+このシステムは好きですか？　
+<input id="good" type="radio" name="like" value="好き"><label>好き</label>
+<input id="bad" type="radio" name="like" value="嫌い"><label>嫌い</label
+</div>
+</br>
+ <input type="button" value="結果へ" onClick="window.open('./%E3%82%A2%E3%83%B3%E3%82%B1%E3%83%BC%E3%83%88%20%E7%B5%90%E6%9E%9C.html')">
  </div>
 
 <script type="text/javascript">
 $(function() {
+　　var friendship　=500;
+ 　window.localStorage.setItem("friendship", friendship);
+
   $("input").change(function() {
     $(this).next('p').text($(this).val());
+    friendship = $(this).val();
+
+    //使っているブラウザウでlocalStorageが使えるかどうかチェックする
+    if (!window.localStorage) {
+        res.innerHTML = "localstorageに対応してません。";
+        return;
+    }
+     window.localStorage.setItem("friendship", friendship);
+
+    var t2 = window.localStorage.getItem("friendship");
+    console.log(t2);
+    });
   });
-});
-  
+
+$( 'input[name="like"]:radio' ).change( function() {  
+	window.localStorage.setItem("like", $( this ).val());
+});  
+
 </script>
+
+
 
 
 
